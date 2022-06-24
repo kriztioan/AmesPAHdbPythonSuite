@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amespahdbpythonsuite.amespahdb &mdash; AmesPAHdbPythonSuite  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/touch-icon-310x310.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> AmesPAHdbPythonSuite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html"><span class="sectnum">1</span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html"><span class="sectnum">2</span> Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html"><span class="sectnum">3</span> API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03a.html"><span class="sectnum">3.1</span> Main Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03b.html"><span class="sectnum">3.2</span> Accessing the molecular PAH data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03c.html"><span class="sectnum">3.3</span> Working with Molecular PAH Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03d.html"><span class="sectnum">3.4</span> Working with fundamental vibrational transitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03e.html"><span class="sectnum">3.5</span> Working with Molecular Geometric Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03f.html"><span class="sectnum">3.6</span> Working with Raw Laboratory Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03g.html"><span class="sectnum">3.7</span> Working Outside the <em>AmesPAHdbIDLSuite</em> Object Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03h.html"><span class="sectnum">3.8</span> Creating PAH Spectra</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec_03h.html#emission-models"><span class="sectnum">3.8.1</span> Emission models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec_03h.html#line-profiles"><span class="sectnum">3.8.2</span> Line profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec_03i.html"><span class="sectnum">3.9</span> Spectroscopic Database Fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec_03i.html#dealing-with-astronomical-observations"><span class="sectnum">3.9.1</span> Dealing with astronomical observations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec_03i.html#database-fitting"><span class="sectnum">3.9.2</span> Database fitting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../release-history.html"><span class="sectnum">4</span> Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../release-history.html#v0-5-0-2022-03-28"><span class="sectnum">4.1</span> v0.5.0 (2022-03-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../release-history.html#v0-1-0-2019-08-20"><span class="sectnum">4.2</span> v0.1.0 (2019-08-20)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html"><span class="sectnum">5</span> FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../amespahdbpythonsuite.html">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.amespahdb">amespahdb class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.data">data class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.xmlparser">xmlparser class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.transitions">transitions class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.spectrum">spectrum class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.coadded">coadd class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.species">species class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.geometry">geometry class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.laboratory">laboratory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.fitted">fitted class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite.observation">observation class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../amespahdbpythonsuite.html#module-amespahdbpythonsuite">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">AmesPAHdbPythonSuite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>amespahdbpythonsuite.amespahdb</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amespahdbpythonsuite.amespahdb</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">Version</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>  <span class="c1"># type: ignore</span>
+
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">from</span> <span class="nn">amespahdbpythonsuite.xmlparser</span> <span class="kn">import</span> <span class="n">XMLparser</span>
+<span class="kn">import</span> <span class="nn">amespahdbpythonsuite</span> <span class="k">as</span> <span class="nn">suite</span>
+
+
+<div class="viewcode-block" id="AmesPAHdb"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb">[docs]</a><span class="k">class</span> <span class="nc">AmesPAHdb</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AmesPAHdbPythonSuite main class.</span>
+<span class="sd">    Contains methods to parse the database, perform search based on query,</span>
+<span class="sd">    and retrieve UIDs.</span>
+<span class="sd">    Calls classes:</span>
+<span class="sd">    :class:`amespahdbpythonsuite.transitions.Transitions`,</span>
+<span class="sd">    :class:`amespahdbpythonsuite.laboratory.Laboratory`,</span>
+<span class="sd">    :class:`amespahdbpythonsuite.species.Species`,</span>
+<span class="sd">    :class:`amespahdbpythonsuite.geometry.Geometry`,</span>
+<span class="sd">    to retrieve the respective instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize amespahdbpythonsuite class. Prints basic PAHdb info</span>
+<span class="sd">        and calls the :meth:`amespahdbpythonsuite.amespahdb.parsefile`</span>
+<span class="sd">        method to parse or restore the database.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">intro</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;AmesPAHdbPythonSuite</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;by</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dr. Christiaan Boersma</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;and</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dr. Alexandros Maragkoudakis</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dr. Matthew J. Shannanon</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dr. Joseph E. Roser</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="n">intro</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SUITE VERSION: </span><span class="si">{</span><span class="n">suite</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;CHECKING FOR UPDATE&quot;</span><span class="p">)</span>
+            <span class="n">github</span> <span class="o">=</span> <span class="s2">&quot;http://api.github.com/repos/pahdb/amespahdbpythonsuite/tags&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">github</span><span class="p">)</span> <span class="k">as</span> <span class="n">url</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+                    <span class="n">versions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Version</span><span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+                    <span class="n">versions</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">Version</span><span class="p">(</span><span class="n">suite</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">versions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                        <span class="n">update</span> <span class="o">=</span> <span class="n">versions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">public</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;V</span><span class="si">{</span><span class="n">update</span><span class="si">}</span><span class="s2"> UPDATE AVAILABLE&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;NO UPDATE AVAILABLE&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">HTTPError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;FAILED TO CHECK FOR UPDATE&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;WEBSITE: HTTP://WWW.ASTROCHEM.ORG/PAHDB/&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;CONTACT: CHRISTIAAN.BOERSMA@NASA.GOV&quot;</span><span class="p">)</span>
+
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AMESPAHDEFAULTDB&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="s2">&quot;DATABASE NOT FOUND:&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;SET SYSTEM AMESPAHDEFAULTDB&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;ENVIRONMENT VARIABLE&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+                <span class="c1"># TODO: Turn the sys.exit into exceptions.</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="n">filename</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UNABLE TO READ: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># TODO: Turn the sys.exit into exceptions.</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: dict</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_joined</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsefile</span><span class="p">(</span>
+            <span class="n">filename</span><span class="p">,</span>
+            <span class="n">cache</span><span class="o">=</span><span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cache&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="n">check</span><span class="o">=</span><span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;check&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="AmesPAHdb.parsefile"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.parsefile">[docs]</a>    <span class="k">def</span> <span class="nf">parsefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to parse or restore the database from cache.</span>
+<span class="sd">        Called by :meth:`amespahdbpythonsuite.amespahdb.__init__` method.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            filname : str</span>
+<span class="sd">                String of the PAHdb filename and path.</span>
+<span class="sd">            keywords</span>
+<span class="sd">                Arbitrary keyword arguments.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Create MD5 hash function pickle.</span>
+        <span class="n">md5</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">()</span>
+            <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+            <span class="o">+</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+            <span class="o">+</span> <span class="s2">&quot;.pkl&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Check if database is dumped in cache and restore it.</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cache&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">md5</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">md5</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">)</span>
+        <span class="p">):</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;RESTORING DATABASE FROM CACHE&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Start timer.</span>
+            <span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+            <span class="c1"># Open and read the dumped database.</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">md5</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+            <span class="c1"># Store the dumped database filename.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md5</span>
+
+            <span class="c1"># Stop timer and calculate elapsed time.</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+
+            <span class="n">info</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;FILENAME                    : </span><span class="si">{</span><span class="n">md5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;ORIGNINAL FILENAME          : </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;PARSE TIME                  : </span><span class="si">{</span><span class="n">elapsed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;VERSION (DATE)              : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;COMMENT                     : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;PARSING DATABASE: THIS MAY TAKE A FEW MINUTES&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Start timer.</span>
+            <span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+            <span class="c1"># Call XMLparser module to parse the database.</span>
+            <span class="n">parser</span> <span class="o">=</span> <span class="n">XMLparser</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;check&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+
+            <span class="c1"># Store the database into self.__self.data.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">to_pahdb_dict</span><span class="p">()</span>
+
+            <span class="c1"># Dump the database into pickle in the cache directory.</span>
+            <span class="k">if</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cache&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">md5</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+
+            <span class="c1"># Store the dumped database filename.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">md5</span>
+
+            <span class="c1"># Stop timer and calculate elapsed time.</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">tstart</span><span class="p">))</span>
+
+            <span class="n">info</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s1">&#39;FILENAME                    : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;PARSE TIME                  : </span><span class="si">{</span><span class="n">elapsed</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;VERSION (DATE)              : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;COMMENT                     : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class representation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(&quot;</span> <span class="sa">f</span><span class="s2">&quot;filename=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A description of the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot;AmesPAHdbPythonSuite AmesPAHdb instance.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__getkeybyuids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">uids</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a dictionary of PAHdb properties</span>
+<span class="sd">        retrieved by keyword for provided UIDs.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            key : str</span>
+<span class="sd">                Database keyword.</span>
+<span class="sd">            uids : list of integers</span>
+<span class="sd">                List of UIDs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dictionary of retrieved properties with UIDs as keys.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;species&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span>
+                <span class="nb">dict</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">][</span><span class="n">uid</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">uids</span>
+                    <span class="k">if</span> <span class="n">uid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span>
+                <span class="nb">dict</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">][</span><span class="n">uid</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">uids</span>
+                    <span class="k">if</span> <span class="n">uid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+<div class="viewcode-block" id="AmesPAHdb.gettransitionsbyuid"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.gettransitionsbyuid">[docs]</a>    <span class="k">def</span> <span class="nf">gettransitionsbyuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uids</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and return transitions instance based on UIDs input.</span>
+<span class="sd">        UIDs should be a list, e.g. the output of search method.</span>
+<span class="sd">        Calls the :class:`amespahdbpythonsuite.transitions.Transitions` class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            uids : list of integers</span>
+<span class="sd">                List of UIDs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            transitions instance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">uids</span> <span class="o">=</span> <span class="p">[</span><span class="n">uids</span><span class="p">]</span>
+
+        <span class="kn">from</span> <span class="nn">amespahdbpythonsuite</span> <span class="kn">import</span> <span class="n">transitions</span>
+
+        <span class="k">return</span> <span class="n">transitions</span><span class="o">.</span><span class="n">Transitions</span><span class="p">(</span>
+            <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;transitions&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+            <span class="n">pahdb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">,</span>
+            <span class="n">uids</span><span class="o">=</span><span class="n">uids</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;zerokelvin_m&quot;</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+            <span class="n">units</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;abscissa&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="o">**-</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;frequency&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;ordinate&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">mol</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;integrated cross-section&quot;</span><span class="p">},</span>
+            <span class="p">},</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.getlaboratorybyuid"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.getlaboratorybyuid">[docs]</a>    <span class="k">def</span> <span class="nf">getlaboratorybyuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uids</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and return laboratory database instance based on UIDs input.</span>
+<span class="sd">        UIDs should be a list, e.g. the output of search method.</span>
+<span class="sd">        Calls the :class:`amespahdbpythonsuite.laboratory.Laboratory` class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            uids : list of integers</span>
+<span class="sd">                List of UIDs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            laboratory database instance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Check if the experimental database is loaded.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;experimental&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;EXPERIMENTAL DATABASE REQUIRED&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">uids</span> <span class="o">=</span> <span class="p">[</span><span class="n">uids</span><span class="p">]</span>
+
+        <span class="kn">from</span> <span class="nn">amespahdbpythonsuite</span> <span class="kn">import</span> <span class="n">laboratory</span>
+
+        <span class="k">return</span> <span class="n">laboratory</span><span class="o">.</span><span class="n">Laboratory</span><span class="p">(</span>
+            <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;laboratory&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+            <span class="n">pahdb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">,</span>
+            <span class="n">uids</span><span class="o">=</span><span class="n">uids</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;laboratory_m&quot;</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>
+            <span class="n">units</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;abscissa&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="o">**-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;frequency&quot;</span><span class="p">},</span>
+                <span class="s2">&quot;ordinate&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="n">u</span><span class="o">.</span><span class="n">def_unit</span><span class="p">(</span>
+                        <span class="s2">&quot;absorbance&quot;</span><span class="p">,</span>
+                        <span class="nb">format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;latex&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;-\log(I/I_</span><span class="si">{0}</span><span class="s2">)&quot;</span><span class="p">},</span>
+                        <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Absorbance&quot;</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;absorbance&quot;</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.getspeciesbyuid"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.getspeciesbyuid">[docs]</a>    <span class="k">def</span> <span class="nf">getspeciesbyuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uids</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and return species instance based on UIDs input.</span>
+<span class="sd">        UIDs should be a list, e.g. the output of search method.</span>
+<span class="sd">        Calls the :class:`amespahdbpythonsuite.species.Species` class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            uids : list of integers</span>
+<span class="sd">                List of UIDs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            species instance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">uids</span> <span class="o">=</span> <span class="p">[</span><span class="n">uids</span><span class="p">]</span>
+
+        <span class="kn">from</span> <span class="nn">amespahdbpythonsuite</span> <span class="kn">import</span> <span class="n">species</span>
+
+        <span class="k">return</span> <span class="n">species</span><span class="o">.</span><span class="n">Species</span><span class="p">(</span>
+            <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+            <span class="n">pahdb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">,</span>
+            <span class="n">uids</span><span class="o">=</span><span class="n">uids</span><span class="p">,</span>
+            <span class="n">references</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;references&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+            <span class="n">comments</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;comments&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.getgeometrybyuid"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.getgeometrybyuid">[docs]</a>    <span class="k">def</span> <span class="nf">getgeometrybyuid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uids</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve and return geometry instance based on UIDs input.</span>
+<span class="sd">        UIDs should be a list, e.g. the output of search method.</span>
+<span class="sd">        Calls the :class:`amespahdbpythonsuite.geometry.Geometry` class</span>
+<span class="sd">        and :meth:`amespahdbpythonsuite.amespahdb.__getkeybyuids` method.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            uids : list of integers</span>
+<span class="sd">                List of UIDs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            geometry instance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">uids</span> <span class="o">=</span> <span class="p">[</span><span class="n">uids</span><span class="p">]</span>
+
+        <span class="kn">from</span> <span class="nn">amespahdbpythonsuite</span> <span class="kn">import</span> <span class="n">geometry</span>
+
+        <span class="k">return</span> <span class="n">geometry</span><span class="o">.</span><span class="n">Geometry</span><span class="p">(</span>
+            <span class="n">database</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__getkeybyuids</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">,</span> <span class="n">uids</span><span class="p">),</span>
+            <span class="n">pahdb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">,</span>
+            <span class="n">uids</span><span class="o">=</span><span class="n">uids</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.search"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Search the database based on query input.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            query : str</span>
+<span class="sd">                String containing search query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of UIDs</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ``search(&#39;magnesium=0 oxygen=0 iron=0</span>
+<span class="sd">            silicium=0 chx=0 ch2=0 c&gt;20 h&gt;0&#39;)``</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">query</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="k">while</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">token</span> <span class="o">=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">]:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;=&quot;</span><span class="p">:</span>
+                    <span class="n">token</span> <span class="o">+=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">:</span>
+                    <span class="n">token</span> <span class="o">+=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;|&quot;</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;|&quot;</span><span class="p">:</span>
+                    <span class="n">token</span> <span class="o">+=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;!&quot;</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;=&quot;</span><span class="p">:</span>
+                    <span class="n">token</span> <span class="o">+=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;=&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;&amp;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;|&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;(&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;)&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;!&quot;</span><span class="p">,</span>
+                <span class="p">]:</span>
+                    <span class="n">token</span> <span class="o">+=</span> <span class="n">query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+        <span class="n">tokens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+            <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tokenize</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+
+        <span class="n">code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsetokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">code</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">found</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;[item[0] for item in _AmesPAHdb__data[&#39;species&#39;].items() if (</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">)]&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">found</span></div>
+
+    <span class="k">def</span> <span class="nf">_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A method called by :sec:`amespahdbpythonsuite.amespahdb.search`</span>
+<span class="sd">        that creates a dictionary with keys based on the input word/category.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            word : str</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="n">token</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+        <span class="n">charge</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;anion&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] &lt; 0&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;cation&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] &gt; 0&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;neutral&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == 0&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] &gt; 0&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;negative&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] &lt; 0&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == -1&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;+&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == 1&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;++&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == 2&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;+++&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == 3&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;---&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;] == -3&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">identities</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;item[0]&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;item[0]&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;atoms&quot;</span><span class="p">:</span> <span class="s1">&#39;len(item[1][&quot;geometry&quot;])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;hydrogen&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 1])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;carbon&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 6])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;nitrogen&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 7])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;oxygen&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 8])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;magnesium&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 12])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;silicium&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 14])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;iron&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 26])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 1])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 6])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 7])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 8])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;mg&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 12])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;si&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 14])&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;fe&quot;</span><span class="p">:</span> <span class="s1">&#39;len([c for c in item[1][&quot;geometry&quot;] if c[&quot;type&quot;] == 26])&#39;</span><span class="p">,</span>
+            <span class="c1"># TODO make transition search work</span>
+            <span class="c1"># &#39;wavenumber&#39;: &#39;item[1][&quot;transitions&quot;][&quot;frequency&quot;]&#39;,</span>
+            <span class="c1"># &#39;absorbance&#39;: &#39;item[1][&quot;transitions&quot;][&quot;intensity&quot;]&#39;,</span>
+            <span class="c1"># &#39;frequency&#39;: &#39;item[1][&quot;transitions&quot;][&quot;frequency&quot;]&#39;,</span>
+            <span class="c1"># &#39;intensity&#39;: &#39;item[1][&quot;transitions&quot;][&quot;intensity&quot;]&#39;,</span>
+            <span class="s2">&quot;ch2&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_ch2&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;chx&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_chx&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;solo&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_solo&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;duo&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_duo&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;trio&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_trio&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;quartet&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_quartet&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;quintet&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;n_quintet&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;charge&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;charge&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;symmetry&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;symmetry&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;weight&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;scale&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;energy&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;total_e&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;zeropoint&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1]m[&quot;vib_e&quot;]&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s1">&#39;item[1][&quot;exp&quot;]&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">logical</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;and&quot;</span><span class="p">:</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;or&quot;</span><span class="p">:</span> <span class="s2">&quot;or&quot;</span><span class="p">,</span> <span class="s2">&quot;|&quot;</span><span class="p">:</span> <span class="s2">&quot;or&quot;</span><span class="p">,</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">:</span> <span class="s2">&quot;and&quot;</span><span class="p">}</span>
+
+        <span class="n">comparison</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;&lt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lt&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gt&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;=&quot;</span><span class="p">:</span> <span class="s2">&quot;==&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;eq&quot;</span><span class="p">:</span> <span class="s2">&quot;==&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;le&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&gt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ge&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;with&quot;</span><span class="p">:</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ne&quot;</span><span class="p">:</span> <span class="s2">&quot;!=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;!=&quot;</span><span class="p">:</span> <span class="s2">&quot;!=&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">transfer</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;(&quot;</span><span class="p">:</span> <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">:</span> <span class="s2">&quot;)&quot;</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NUMERIC&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">charge</span><span class="p">:</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CHARGE&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">identities</span><span class="p">:</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IDENTITY&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identities</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">logical</span><span class="p">:</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;LOGICAL&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logical</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">comparison</span><span class="p">:</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;COMPARISON&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">transfer</span><span class="p">:</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TRANSFER&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transfer</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="s2">&quot;(mg+|si+|fe+|[chno]+)([0-9]*)(mg+|si+|fe+|[chno]+)([0-9]*)(mg+|si+|fe+|[chno]*)([0-9]*)&quot;</span><span class="p">,</span>
+            <span class="n">word</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FORMULA&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;item[1][&#39;formula&#39;] == &#39;</span><span class="si">{</span><span class="n">word</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># TODO: add search by compound name</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IGNORE&quot;</span>
+            <span class="n">token</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">word</span>
+
+        <span class="n">token</span><span class="p">[</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="n">token</span>
+
+    <span class="k">def</span> <span class="nf">_parsetokens</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the dictionary of tokens created by</span>
+<span class="sd">        :sec:`amespahdbpythonsuite.amespahdb.tokenize`</span>
+<span class="sd">        and return string of expressions.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            tokens : list</span>
+<span class="sd">                List of dictionaries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            parsed : str</span>
+<span class="sd">                String of expressions based on tokens.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ntokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+        <span class="n">prev</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">ntokens</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">next</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">next</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">parsed</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="n">current</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FORMULA&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;LOGICAL&quot;</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; or &quot;</span>
+                <span class="n">parsed</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IDENTITY&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;LOGICAL&quot;</span>
+                        <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TRANSFER&quot;</span>
+                        <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TRANSFER&quot;</span>
+                        <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; and &quot;</span>
+                <span class="k">if</span> <span class="nb">next</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COMPARISON&quot;</span><span class="p">:</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &gt; 0&quot;</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NUMERIC&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COMPARISON&quot;</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]:</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;LOGICAL&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IDENTITY&quot;</span>
+                        <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NUMERIC&quot;</span>
+                        <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FORMULA&quot;</span>
+                        <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CHARGE&quot;</span>
+                        <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">next</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TRANSFER&quot;</span><span class="p">:</span>
+                                <span class="n">parsed</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+                            <span class="k">elif</span> <span class="p">(</span>
+                                <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IDENTITY&quot;</span>
+                                <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NUMERIC&quot;</span>
+                                <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;FORMULA&quot;</span>
+                                <span class="ow">or</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CHARGE&quot;</span>
+                            <span class="p">):</span>
+                                <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COMPARISON&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IDENTITY&quot;</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]:</span>
+                        <span class="k">if</span> <span class="nb">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">tokens</span><span class="p">[</span><span class="nb">next</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NUMERIC&quot;</span><span class="p">:</span>
+                                <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CHARGE&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;LOGICAL&quot;</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; and &quot;</span>
+                <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TRANSFER&quot;</span><span class="p">:</span>
+                <span class="n">parsed</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NAME&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+                        <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;LOGICAL&quot;</span> <span class="ow">and</span> <span class="n">tokens</span><span class="p">[</span><span class="n">prev</span><span class="p">][</span><span class="s2">&quot;valid&quot;</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="n">parsed</span> <span class="o">+=</span> <span class="s2">&quot; and &quot;</span>
+                <span class="c1"># TODO implement name</span>
+                <span class="c1"># parsed += f&quot;item[1][&#39;comments&#39;] == {tokens[current][&#39;translation&#39;]}&quot;</span>
+            <span class="k">elif</span> <span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IGNORE&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">tokens</span><span class="p">[</span><span class="n">current</span><span class="p">][</span><span class="s1">&#39;translation&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; NOT UNDERSTOOD&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span>
+
+            <span class="n">current</span> <span class="o">=</span> <span class="nb">next</span>
+
+            <span class="k">if</span> <span class="nb">next</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">next</span> <span class="o">==</span> <span class="n">ntokens</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">next</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">next</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">parsed</span>
+
+<div class="viewcode-block" id="AmesPAHdb.getversion"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.getversion">[docs]</a>    <span class="k">def</span> <span class="nf">getversion</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to retrieve the PAHdb version.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String of PAHdb version.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.checkversion"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.checkversion">[docs]</a>    <span class="k">def</span> <span class="nf">checkversion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to check against a PAHdb version.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean whether a provided version matched the PAHdb version.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">version</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.gettype"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.gettype">[docs]</a>    <span class="k">def</span> <span class="nf">gettype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to retrieve the PAHdb type.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String of PAHdb type.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.getdatabaseref"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.getdatabaseref">[docs]</a>    <span class="k">def</span> <span class="nf">getdatabaseref</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to retrieve the database.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dictionary containing the parsed database.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__data</span></div>
+
+<div class="viewcode-block" id="AmesPAHdb.message"><a class="viewcode-back" href="../../amespahdbpythonsuite.html#amespahdbpythonsuite.amespahdb.AmesPAHdb.message">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">55</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A method to print terminal message.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            text : string or list of strings.</span>
+<span class="sd">                Text to be displayed.</span>
+<span class="sd">            space : integer</span>
+<span class="sd">                Number to indent the text.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="n">space</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">space</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">space</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019/2021 Dr. Christiaan Boersma, Dr. Matthew J. Shannon, and Dr. Alexandros Maragkoudakis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

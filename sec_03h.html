@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.8 Creating PAH Spectra &mdash; AmesPAHdbPythonSuite  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/touch-icon-310x310.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.9 Spectroscopic Database Fitting" href="sec_03i.html" />
+    <link rel="prev" title="3.7 Working Outside the AmesPAHdbIDLSuite Object Classes" href="sec_03g.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AmesPAHdbPythonSuite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html"><span class="sectnum">1</span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html"><span class="sectnum">2</span> Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html"><span class="sectnum">3</span> API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sec_03a.html"><span class="sectnum">3.1</span> Main Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03b.html"><span class="sectnum">3.2</span> Accessing the molecular PAH data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03c.html"><span class="sectnum">3.3</span> Working with Molecular PAH Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03d.html"><span class="sectnum">3.4</span> Working with fundamental vibrational transitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03e.html"><span class="sectnum">3.5</span> Working with Molecular Geometric Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03f.html"><span class="sectnum">3.6</span> Working with Raw Laboratory Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03g.html"><span class="sectnum">3.7</span> Working Outside the <em>AmesPAHdbIDLSuite</em> Object Classes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">3.8</span> Creating PAH Spectra</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#emission-models"><span class="sectnum">3.8.1</span> Emission models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-profiles"><span class="sectnum">3.8.2</span> Line profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03i.html"><span class="sectnum">3.9</span> Spectroscopic Database Fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sec_03i.html#dealing-with-astronomical-observations"><span class="sectnum">3.9.1</span> Dealing with astronomical observations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sec_03i.html#database-fitting"><span class="sectnum">3.9.2</span> Database fitting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release-history.html"><span class="sectnum">4</span> Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-history.html#v0-5-0-2022-03-28"><span class="sectnum">4.1</span> v0.5.0 (2022-03-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-history.html#v0-1-0-2019-08-20"><span class="sectnum">4.2</span> v0.1.0 (2019-08-20)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html"><span class="sectnum">5</span> FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amespahdbpythonsuite.html">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.amespahdb">amespahdb class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.data">data class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.xmlparser">xmlparser class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.transitions">transitions class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.spectrum">spectrum class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.coadded">coadd class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.species">species class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.geometry">geometry class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.laboratory">laboratory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.fitted">fitted class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.observation">observation class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AmesPAHdbPythonSuite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html"><span class="sectnum">3</span> API</a> &raquo;</li>
+      <li><span class="sectnum">3.8</span> Creating PAH Spectra</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="sec_03g.html" class="btn btn-neutral float-left" title="3.7 Working Outside the AmesPAHdbIDLSuite Object Classes" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sec_03i.html" class="btn btn-neutral float-right" title="3.9 Spectroscopic Database Fitting" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="creating-pah-spectra">
+<h1><span class="sectnum">3.8</span> Creating PAH Spectra<a class="headerlink" href="#creating-pah-spectra" title="Permalink to this heading">¶</a></h1>
+<p>The (theoretical) database XML-files provide fundamental
+vibrational transitions at 0-Kelvin. To compare these with
+observations, they need to be transformed into a spectral density,
+i.e., spectra. When not dealing with absorption at 0-Kelvin, an
+emission model is required as well.</p>
+<div class="section" id="emission-models">
+<h2><span class="sectnum">3.8.1</span> Emission models<a class="headerlink" href="#emission-models" title="Permalink to this heading">¶</a></h2>
+<p>The software tools offer three PAH emission models. With increasing complexity they are the ‘fixedtemperature’, ‘calculatedtemperature’, and ‘cascade’ model. The first simply multiplies a blackbody at fixed given temperature with the integrated cross-section of each vibrational transition. The second first calculates the maximum attained temperature from the provided input and subsequently multiplies a blackbody at that fixed temperature with the integrated cross-section of each vibrational transition. The third averages the total emission over the entire cooling cascade (time).</p>
+<p>Emission models are handled by the ‘transitions’-instance. The ‘FixedTemperature’-model simply takes a temperature, in Kelvin, and, in their simplest form, both the ‘calculatedtemperature’ and ‘cascade’ models take an energy, in erg.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transitions</span><span class="o">.</span><span class="n">fixedtemperature</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="n">transitions</span><span class="o">.</span><span class="n">calculatedtemperature</span><span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="mf">1.603e-12</span><span class="p">)</span>
+
+<span class="n">transitions</span><span class="o">.</span><span class="n">cascade</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="mf">1.603e-12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Both the ‘calculatedtemperature’ and ‘cascade’-methods accept the
+‘approximate’, ‘star’, ‘stellarmodel’, and ‘isrf’-keywords. With
+the ‘approximate’-keyword specified, calculations are performed
+using the PAH emission model from Bakes et al.
+(2001<a class="reference external" href="http://adsabs.harvard.edu/abs/2001ApJ...556..501B">a</a>,
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2001ApJ...560..261B">b</a>). When
+the ‘star’-keyword is set, a stellar blackbody at the provided
+temperature is used to calculate the average energy absorbed by
+each PAH utilizing the PAH absorption cross-sections from Draine &amp;
+Li
+(<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode=2007ApJ...657..810D&amp;db_key=AST&amp;link_type=ABSTRACT&amp;high=54888b502c27613">2007</a>).
+In case the ‘stellarmodel’-keyword is provided as well, the input
+is considered to be a full-blown, for example, kurucz stellar
+atmosphere model. In the IDL case, the
+‘AmesPAHdbIDLSuite_CREATE_KURUCZ_STELLARMODEL_S’ helper routine is
+provided to assist with molding the model data into the proper
+input format. Lastly, with the ‘isrf’-keyword set, the
+interstellar radiation field from Mathis et al.
+(<a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode=1983A%26A...128..212M&amp;db_key=AST&amp;link_type=ABSTRACT&amp;high=54888b502c28367">1983</a>)
+is used to calculate the average energy absorbed by each PAH.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transitions</span><span class="o">.</span><span class="n">calculatedtemperature</span><span class="p">(</span><span class="mi">17000</span><span class="p">,</span> <span class="n">star</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">transitions</span><span class="o">.</span><span class="n">cascade</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="s1">&#39;approximate&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;isrf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ‘cascade’-method also accepts the ‘convolve’-keyword. When set
+and combined with either the ‘star’, optionally with the
+‘stellarModel’-keyword, or ‘isrf’-keyword, will instead of
+calculating the average absorbed photon energy for each PAH,
+convolve the PAH emission with the entire radiation field.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transitions</span><span class="o">.</span><span class="n">cascade</span><span class="p">(</span><span class="mi">17000</span><span class="p">,</span> <span class="n">star</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convolve</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>NB</strong> This is computationally expensive.</p>
+<p>The ‘transitions’-instance’s ‘shift’-method can be
+used to redshift the fundamental transitions to simulate
+anharmonic effects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transitions</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>NB</strong> Red-shifting the fundamental vibrational transitions should
+be done <em>after</em> applying one of the three emission models
+described above.</p>
+</div>
+<div class="section" id="line-profiles">
+<h2><span class="sectnum">3.8.2</span> Line profiles<a class="headerlink" href="#line-profiles" title="Permalink to this heading">¶</a></h2>
+<p>Line profiles are also handled by the ‘transitions’-intance and it provides three profiles Lorentzian, Gaussian and Drude. Convolution with the keyword chosen line profile is achieved through the ‘transitions’-instance’s ‘convolve’-method, which will return the convolved spectrum in the form of a ‘spectrum’-instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">drude</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Optionally, the ‘convolve’-method accepts the ‘fwhm’, ‘grid’,
+‘npoints’, and ‘xrange’-keywords, which control the
+full-width-at-half-maximum of the selected line profile (in
+cm<sup>-1</sup>), convolution onto a specified grid, the number of
+resolution elements in the generated spectrum, and the frequency
+range (in cm<sup>-1</sup>) of the spectrum.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">drude</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">myGrid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ‘spectrum’-instance exposes convolved spectra and provides the ‘plot’, and ‘write’-methods. The ‘plot’-method will display the spectrum of each PAH species in a different color. The ‘write’-method will write all spectra to an IPAC table (.tbl). Optionally, a filename can be provided.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="n">spectrum</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;myFile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Optionally, the ‘wavelength’, ‘stick’, ‘oplot’, ‘legend’, and
+‘color’-keywords can be given to the ‘plot’-method to control
+abscissa, stick representation, overplotting, legend and color,
+respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelength</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sec_03g.html" class="btn btn-neutral float-left" title="3.7 Working Outside the AmesPAHdbIDLSuite Object Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sec_03i.html" class="btn btn-neutral float-right" title="3.9 Spectroscopic Database Fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019/2021 Dr. Christiaan Boersma, Dr. Matthew J. Shannon, and Dr. Alexandros Maragkoudakis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

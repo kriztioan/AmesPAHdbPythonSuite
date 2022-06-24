@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.2 Accessing the molecular PAH data &mdash; AmesPAHdbPythonSuite  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/touch-icon-310x310.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.3 Working with Molecular PAH Properties" href="sec_03c.html" />
+    <link rel="prev" title="3.1 Main Interface" href="sec_03a.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AmesPAHdbPythonSuite
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html"><span class="sectnum">1</span> Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html"><span class="sectnum">2</span> Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html"><span class="sectnum">3</span> API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sec_03a.html"><span class="sectnum">3.1</span> Main Interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">3.2</span> Accessing the molecular PAH data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03c.html"><span class="sectnum">3.3</span> Working with Molecular PAH Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03d.html"><span class="sectnum">3.4</span> Working with fundamental vibrational transitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03e.html"><span class="sectnum">3.5</span> Working with Molecular Geometric Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03f.html"><span class="sectnum">3.6</span> Working with Raw Laboratory Spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03g.html"><span class="sectnum">3.7</span> Working Outside the <em>AmesPAHdbIDLSuite</em> Object Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03h.html"><span class="sectnum">3.8</span> Creating PAH Spectra</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sec_03h.html#emission-models"><span class="sectnum">3.8.1</span> Emission models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sec_03h.html#line-profiles"><span class="sectnum">3.8.2</span> Line profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sec_03i.html"><span class="sectnum">3.9</span> Spectroscopic Database Fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sec_03i.html#dealing-with-astronomical-observations"><span class="sectnum">3.9.1</span> Dealing with astronomical observations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sec_03i.html#database-fitting"><span class="sectnum">3.9.2</span> Database fitting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release-history.html"><span class="sectnum">4</span> Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-history.html#v0-5-0-2022-03-28"><span class="sectnum">4.1</span> v0.5.0 (2022-03-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-history.html#v0-1-0-2019-08-20"><span class="sectnum">4.2</span> v0.1.0 (2019-08-20)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html"><span class="sectnum">5</span> FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amespahdbpythonsuite.html">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.amespahdb">amespahdb class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.data">data class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.xmlparser">xmlparser class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.transitions">transitions class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.spectrum">spectrum class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.coadded">coadd class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.species">species class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.geometry">geometry class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.laboratory">laboratory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.fitted">fitted class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite.observation">observation class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="amespahdbpythonsuite.html#module-amespahdbpythonsuite">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AmesPAHdbPythonSuite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html"><span class="sectnum">3</span> API</a> &raquo;</li>
+      <li><span class="sectnum">3.2</span> Accessing the molecular PAH data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="sec_03a.html" class="btn btn-neutral float-left" title="3.1 Main Interface" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sec_03c.html" class="btn btn-neutral float-right" title="3.3 Working with Molecular PAH Properties" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="accessing-the-molecular-pah-data">
+<h1><span class="sectnum">3.2</span> Accessing the molecular PAH data<a class="headerlink" href="#accessing-the-molecular-pah-data" title="Permalink to this heading">¶</a></h1>
+<p>The molecular PAH data is accessed through their associated unique
+identifier (UID). However, a search-interface is available that
+allows retrieval of these UIDs through simplified queries. The
+syntax is the same as used on the NASA Ames PAH IR Spectroscopic
+Database
+<a class="reference external" href="https://www.astrochemistry.org/pahdb/theoretical/3.20/default/view">website.</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">uids</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;c&lt;=20 neutral n=2 neutral&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The molecular PAH data contained in the database XML-files
+consists of four main parts:</p>
+<ol class="arabic simple">
+<li><p>Molecular properties, .e.g, molecular weight, zero point
+energy, total energy, etc.</p></li>
+<li><p>Fundamental vibrational transitions</p></li>
+<li><p>Molecular geometric data</p></li>
+<li><p>Raw laboratory spectra for a subset of molecules in the
+experimental database</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pahdb</span> <span class="o">=</span> <span class="n">AmesPAHdb</span><span class="p">()</span>
+
+<span class="n">uids</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;c&lt;=20 neutral n=2 neutral&quot;</span><span class="p">)</span>
+
+<span class="n">pahs</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">getspeciesbyuid</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span>
+
+<span class="n">transitions</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">gettransitionsbyuid</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span>
+
+<span class="n">geometry</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">getgeometrybyuid</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span>
+
+<span class="n">laboratory</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">getlaboratorybyuid</span><span class="p">(</span><span class="n">uids</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, one can access these components through the ‘species’-instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pahdb</span> <span class="o">=</span> <span class="n">AmesPAHdb</span><span class="p">()</span>
+
+<span class="n">pahs</span> <span class="o">=</span> <span class="n">pahdb</span><span class="o">.</span><span class="n">getspeciesbyuid</span><span class="p">(</span><span class="n">pahdb</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;c&lt;=20 neutral n=2 neutral&quot;</span><span class="p">))</span>
+
+<span class="n">transitions</span> <span class="o">=</span> <span class="n">pahs</span><span class="o">.</span><span class="n">transitions</span><span class="p">()</span>
+
+<span class="n">geometry</span> <span class="o">=</span> <span class="n">pahs</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+<span class="n">laboratory</span> <span class="o">=</span> <span class="n">pahs</span><span class="o">.</span><span class="n">laboratory</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sec_03a.html" class="btn btn-neutral float-left" title="3.1 Main Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sec_03c.html" class="btn btn-neutral float-right" title="3.3 Working with Molecular PAH Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019/2021 Dr. Christiaan Boersma, Dr. Matthew J. Shannon, and Dr. Alexandros Maragkoudakis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
